@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Intrivis Markup — Final</title>
+  <link rel="stylesheet" href="intrivis-markup.css">
+</head>
+<body>
+  <div class="topbar compact" role="toolbar" aria-label="Top toolbar">
+    <div class="left">
+      <button id="btnOpen" class="icon" title="Open PDF">📁</button>
+      <input id="fileInput" type="file" accept="application/pdf" style="display:none">
+      <button id="btnSavePdf" class="icon" title="Download Annotated PDF">⬇️</button>
+      <div class="sep"></div>
+      <button id="panTool" class="icon tool" title="Pan">✋</button>
+      <button id="penTool" class="icon tool" title="Pen">✏️</button>
+      <button id="rectTool" class="icon tool" title="Rect">▭</button>
+      <button id="ellipseTool" class="icon tool" title="Ellipse">◯</button>
+      <button id="hlTool" class="icon tool" title="Highlight">🖍️</button>
+      <button id="measureTool" class="icon tool" title="Measure">📏</button>
+      <button id="textTool" class="icon tool" title="Text">T</button>
+      <button id="stampTool" class="icon tool" title="Stamp">🏷️</button>
+      <button id="eraserTool" class="icon tool" title="Eraser">🧽</button>
+      <div class="sep"></div>
+      <button id="setScale" class="small" title="Set scale for current page">Set Scale</button>
+      <div class="sep"></div>
+      <label class="prop">Stroke <input id="strokeWidth" type="range" min="1" max="12" value="2"></label>
+      <label class="prop">Color <input id="color" type="color" value="#ff0000"></label>
+    </div>
+    <div class="center">
+      <span id="title">Intrivis Markup</span>
+    </div>
+    <div class="right">
+      <button id="toggleThumbs" class="icon" title="Toggle Thumbnails">🖼️</button>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <aside id="thumbs" class="thumbnails" aria-hidden="false"></aside>
+    <main class="viewer-area">
+      <div id="dropZone" class="dropzone">Drop PDF here or click 📁 Open</div>
+      <div id="pages" class="pages"></div>
+    </main>
+  </div>
+
+  <div class="bottombar compact">
+    <div class="left">
+      <button id="prevPage" class="icon" title="Prev page">◀</button>
+      <span id="pageIndicator">0 / 0</span>
+      <button id="nextPage" class="icon" title="Next page">▶</button>
+    </div>
+    <div class="center">
+      <label>Zoom <input id="zoomRange" type="range" min="25" max="300" value="150"></label>
+      <button id="fitWidth" class="small">Fit Width</button>
+      <button id="fitPage" class="small">Fit Page</button>
+    </div>
+    <div class="right">
+      <span id="scaleIndicator">Scale: -</span>
+      <span id="status">No document loaded</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="intrivis-markup.js"></script>
+</body>
+</html>
